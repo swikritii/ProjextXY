@@ -1,0 +1,18 @@
+.link-border-anim{
+    position: relative;
+    &::after{
+        content: ' ';
+        bottom: -3px;
+        left: 0;
+        position: absolute;
+        width: 0;
+        height: 1.5px;
+        background: $secondary-light;
+        @include transition(width .4s ease-in-out);
+    }
+    &:hover{
+      &::after{
+          width: 100%;
+      }
+    }
+}

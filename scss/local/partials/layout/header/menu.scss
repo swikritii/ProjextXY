@@ -1,0 +1,308 @@
+.main-navigation {
+  ul {
+    &.menu-collapse {
+      @include display-flex(flex);
+      @include align-items-center;
+      @include justify-content-center;
+      margin: 0;
+
+      li {
+        position: relative;
+
+        &:not(:last-child) {
+          margin-right: 10px;
+        }
+
+        a {
+          padding: 12px 35px;
+          font-size: 0.938rem;
+          font-weight: 400;
+          color: $heading-color;
+          position: relative;
+          text-transform: capitalize;
+          @include transition(all 0.4s ease);
+
+          @media #{$breakpoint-desktop} {
+            font-size: 0.875rem;
+            letter-spacing: 0.8px;
+          }
+
+          @media #{$breakpoint-sm} {
+            padding: 10px 16px;
+          }
+
+          &.call-to-action {
+            background: $secondary-color;
+            span {
+              position: relative;
+              z-index: 11;
+              color: $white-color !important;
+            }
+
+            &::before {
+              top: 0;
+              left: 0;
+              position: absolute;
+              content: "";
+              background: lighten($secondary-color, 6%);
+              transform: scale(0);
+              @include transition(all 0.2s ease);
+              width: 100%;
+              height: 100%;
+              @include radius(50%);
+              z-index: 1;
+            }
+          }
+        }
+
+        &.active,
+        &:hover {
+          a {
+            color: rgba($heading-color, 0.6) !important;
+
+            &.call-to-action {
+              &::before {
+                transform: scale(1);
+                @include radius(0%);
+              }
+            }
+          }
+        }
+
+        &.is-submenu {
+          a {
+            padding-right: 1.5rem;
+            position: relative;
+            @include display-flex(flex);
+            @include align-items-center;
+
+            &::after {
+              content: "arrow_drop_down";
+              font-family: "Material Icons";
+              font-size: 0.875rem;
+              font-weight: 900;
+              text-transform: initial;
+              margin-left: 0.6125rem;
+              margin-right: 0;
+              position: absolute;
+              right: 5px;
+              top: 50%;
+              @include transform(translateY(-50%));
+              -webkit-transition: all 0.1s ease-in-out;
+              @include transition(all 0.4s ease);
+            }
+
+            i,
+            svg,
+            img {
+              margin-right: 0.6125rem;
+              color: #7b7b7b;
+              font-size: 24px;
+              vertical-align: middle;
+            }
+          }
+
+          ul {
+            &.submenu {
+              visibility: hidden;
+              opacity: 0;
+              background-color: $white-color;
+              text-align: left;
+              top: 120%;
+              left: 0;
+              width: 280px;
+              position: absolute;
+              -webkit-box-shadow: 0 0px 20px rgba(#333232, 0.25);
+              box-shadow: 0 0px 20px rgba(#333232, 0.25);
+              -webkit-transform-origin: 0, 0;
+              -moz-transform-origin: 0, 0;
+              -o-transform-origin: 0, 0;
+              -ms-transform-origin: 0, 0;
+              transform-origin: 0, 0;
+              -webkit-animation-fill-mode: forwards;
+              animation-fill-mode: forwards;
+              @include transition(all 0.5s ease);
+              @include radius(10px);
+              margin: 0;
+
+              &::after {
+                visibility: hidden;
+                opacity: 0;
+                content: "";
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 0 10px 10px 10px;
+                border-color: transparent transparent white transparent;
+                position: absolute;
+                left: 30px;
+                top: -10px;
+                -webkit-box-shadow: 0 10px 40px rgba(51, 51, 51, 0.2);
+                box-shadow: 0 10px 40px rgba(51, 51, 51, 0.2);
+                -webkit-transition: all 0.7s ease-in-out;
+                -moz-transition: all 0.7s ease-in-out;
+                -o-transition: all 0.7s ease-in-out;
+                -ms-transition: all 0.7s ease-in-out;
+              }
+
+              li {
+                display: block;
+                border-bottom: 0.5px solid #e6e6e6;
+                -webkit-transition: all 500ms ease-in-out;
+                -moz-transition: all 500ms ease-in-out;
+                -o-transition: all 500ms ease-in-out;
+                -ms-transition: all 500ms ease-in-out;
+
+                &:last-child {
+                  border-bottom: 2px solid #0055ff;
+                }
+
+                a {
+                  font-weight: 600;
+                  display: block;
+                  padding: 0.625rem 1.5rem;
+                  color: #333132;
+                  -webkit-transition: all 0.3s ease-in-out;
+                  -moz-transition: all 0.3s ease-in-out;
+                  -o-transition: all 0.3s ease-in-out;
+                  -ms-transition: all 0.3s ease-in-out;
+
+                  &:hover {
+                  }
+
+                  &::after {
+                    display: none;
+                  }
+
+                  span {
+                    transition: all 0.4s ease;
+                    color: #333132;
+                    font-weight: 600;
+                    font-size: 0.875rem;
+                  }
+                }
+              }
+            }
+          }
+
+          &:hover {
+            a {
+              &::after {
+                content: "arrow_drop_up";
+              }
+            }
+
+            ul {
+              &.submenu {
+                visibility: visible;
+                opacity: 1;
+                z-index: 1000;
+
+                &::after {
+                  visibility: visible;
+                  opacity: 1;
+                }
+
+                li {
+                  &:hover {
+                    padding-left: 1rem;
+
+                    a {
+                      color: #0055ff;
+
+                      i {
+                        color: #0055ff;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  button {
+    &.call-to-action {
+      width: 130px;
+    }
+  }
+  &.is-dark {
+    ul {
+      &.menu-collapse {
+        li {
+          a {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
+
+//hamburger menu
+/* .hamburgerWrapper {
+    top: 1.5rem;
+    position: fixed;
+    right: 4rem;
+    z-index: 2;
+
+    .hamburger {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: 2rem;
+        height: calc(2rem + 2px);
+        cursor: pointer;
+        transition: box-shadow 0.4s ease;
+        backface-visibility: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        div {
+            position: relative;
+            flex: none;
+            width: 100%;
+            height: 1px;
+            background: $primary-color;
+            transition: all 0.4s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                z-index: 1;
+                top: -.5rem;
+                right: 0;
+                width: 100%;
+                max-width: 1.25rem;
+                height: 1px;
+                background: inherit;
+                transition: all 0.4s ease;
+            }
+
+            &::after {
+                top: .5rem;
+            }
+        }
+    }
+
+    &:hover {
+        .hamburger {
+            div {
+
+                &::before,
+                &::after {
+                    width: 100%;
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+} */

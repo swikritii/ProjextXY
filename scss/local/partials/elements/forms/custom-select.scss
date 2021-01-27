@@ -1,0 +1,288 @@
+.custom-select {
+  position: relative;
+  min-width: 70px;
+  width: 100%;
+
+  .search {
+    position: relative;
+    max-width: 94%;
+    margin: 0 auto;
+    margin-top: 0.6125rem;
+  }
+
+  p {
+    display: inline-block;
+    width: 100%;
+    @include transition(all 0.4s ease);
+
+    &.selected-item {
+      border: 1px solid $black-color;
+      height: 2.875rem;
+      line-height: 1;
+      padding: 0 1.5rem 0 1rem;
+      text-transform: initial;
+      position: relative;
+      cursor: pointer;
+      color: $heading-color;
+      background-color: $bg-color;
+      @include line-clamp(1);
+      @include display-flex(flex);
+      @include justify-content-start;
+      @include align-items-center;
+
+      @media #{$breakpoint-md} {
+        height: 2.5rem;
+        padding: 0 1.25rem 0 0.875rem;
+      }
+
+      span {
+        font-weight: 400;
+        padding-right: 15px;
+        @include transition(all 0.3s ease);
+      }
+
+      i {
+        margin-right: 0.5rem;
+      }
+
+      &::after {
+        content: "keyboard_arrow_down";
+        font-family: "Material Icons";
+        position: absolute;
+        text-transform: initial;
+        right: 0.5rem;
+        top: 0;
+        font-size: 22px;
+        color: $heading-color;
+        z-index: 99;
+        height: 100%;
+        @include display-flex(flex);
+        @include align-items-center;
+        @include justify-content-center;
+
+        @media #{$breakpoint-md} {
+          font-size: 18px;
+          top: -1px;
+        }
+      }
+    }
+  }
+
+  .select-list {
+    min-width: 120px;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    z-index: 1000;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    background-color: $white-color;
+    @include box-shadow(0 5px 15px rgba(0, 0, 0, 0.15));
+    @include transition(all 0.4s ease);
+    @include radius(5px);
+    display: none;
+    max-height: 150px;
+    &::-webkit-scrollbar {
+      width: 4px;
+      background: $border-color;
+      @include radius(4px);
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: $border-color;
+      @include radius(4px);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      @include radius(4px);
+      background: $border-dark;
+    }
+
+    &.sm-length {
+      overflow-y: initial;
+    }
+
+    li {
+      background: $white-color;
+      padding: 0.35rem 0.6125rem;
+      @include display-flex(flex);
+      @include justify-content-start;
+      @include align-items-center;
+      cursor: pointer;
+      @include transition(all 0.3s linear);
+      border-bottom: 1px solid transparent;
+      margin-bottom: 0;
+
+      label,
+      span {
+        font-weight: 400;
+        text-transform: capitalize;
+        color: $text-secondary;
+      }
+
+      i {
+        font-weight: 400;
+        font-size: 1.2rem;
+        max-width: 18px;
+        @include flex(0 0 24px);
+        max-width: 24px;
+        line-height: 1;
+
+        @media #{$breakpoint-desktop} {
+          font-size: 1rem;
+        }
+      }
+
+      img {
+        max-width: 14px;
+      }
+    }
+
+    &.multiple-select {
+      li {
+        padding: 0;
+
+        .custom-checkbox {
+          width: 100%;
+          padding: 0.5rem;
+
+          label {
+            width: 100%;
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+
+    &.right-dropdown {
+      right: 0;
+    }
+
+    &.left-dropdown {
+      left: 0;
+    }
+  }
+
+  &.is-bg {
+    p {
+      background: $bg-color;
+
+      &:hover {
+        background: $white-color;
+        border: 1px solid $secondary-color;
+      }
+    }
+  }
+  &.is-border {
+    p.selected-item {
+      border: 1px solid $heading-color;
+      background: $white-color;
+    }
+    &:hover {
+      p.selected-item {
+        background: $primary-xs-light;
+        border: 1px solid $primary-color;
+      }
+    }
+  }
+  &.is-radius {
+    p {
+      @include radius(10px);
+    }
+  }
+  &.is-md-radius {
+    p {
+      @include radius(5px);
+    }
+  }
+
+  &.show-dropdown {
+    p {
+      &.selected-item {
+        border: 1px solid $primary-color;
+        background-color: $primary-xs-light;
+        &::after {
+          content: "keyboard_arrow_up";
+        }
+      }
+    }
+
+    &.is-bg {
+      p {
+        background: $white-color;
+        border: 1px solid $secondary-color;
+      }
+    }
+
+    .select-list {
+      display: block;
+      &.sm-length {
+        max-height: 100px;
+      }
+
+      li {
+        &:hover {
+          background: $primary-xs-light;
+
+          i {
+            color: $primary-color;
+          }
+        }
+      }
+    }
+  }
+
+  &.is-disable {
+    p {
+      &.selected-item {
+        color: $text-secondary;
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      &:hover {
+        background: $white-color;
+      }
+    }
+
+    &.show-dropdown {
+      p {
+        &.selected-item {
+          background: $white-color;
+
+          &::after {
+            content: "expand_more";
+          }
+        }
+      }
+
+      .select-list {
+        display: none;
+      }
+    }
+  }
+
+  &.is-sm {
+    p {
+      &.selected-item {
+        height: 2.5rem;
+        line-height: 2.5rem;
+
+        @media #{$breakpoint-desktop} {
+          height: 2rem;
+          line-height: 2rem;
+          font-size: 0.685rem;
+        }
+      }
+    }
+
+    .select-list {
+      li {
+        @media #{$breakpoint-desktop} {
+          font-size: 0.685rem;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,292 @@
+.body-wrapper{
+    -webkit-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+    height: 100vh;
+    aside.sidenav{
+        max-width: 350px;
+        width: 100%;
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        height: 100%;
+        padding: 0;
+        z-index: 999;
+        -webkit-transition: all 1s ease-in-out;
+        -o-transition: all 1s ease-in-out;
+        transition: all 1s ease-in-out;
+        display: inline-block;
+        background-color: #000D9C;
+        color: #ffffff;
+        max-height: 100vh;
+        height: 100vh;
+       
+        .sidenav-header{
+            padding: 1.25rem;
+            border-bottom: 1px solid #2332BA;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            a{ 
+                &.logo{
+                    img{
+                        max-width: 100px;
+                    }
+                }
+                &.toggle-sidebar{
+                    position: relative;
+                    width: 24px;
+                    height: 24px;
+                    -webkit-transition: all 0.5s ease-in-out;
+                    -o-transition: all 0.5s ease-in-out;
+                    transition: all 0.5s ease-in-out;
+                    display: inline-block;
+                    span{
+                        position: absolute;
+                        height: 3px;
+                        border-radius: 30px;
+                        width: 100%;
+                        background-color: #ffffff;
+                        top: 0;
+                        transition: transform .2s ease-in-out, opacity .2s ease-in-out;
+                        z-index: 1101;
+                        &:nth-child(1){
+                            top: 0;
+                        }
+                        &:nth-child(2),
+                        &:nth-child(3){
+                            top: 8px;   
+                        }
+                        &:nth-child(4) {
+                            top: 16px;
+                        }
+                    }
+                }
+                &.close-nav{
+                    position: absolute;
+                    top: 10px;
+                    right: 20px;
+                    color: white;
+                    font-size: 22px;
+                    &:hover{
+                        color:  #23D1FD;
+                    }
+                }
+            }
+        }
+        .sidenav-body{
+            li{
+                padding: .5rem 1rem; 
+                h2{
+                    // color: white;
+                }
+                &.separator{
+                    border-top: 1px solid #949494;
+                    margin: 10px 0;
+                }
+            }
+            ul{
+                &.sidenav-menu{
+                    li {
+                        padding: 0;
+                        position: relative;
+                        -webkit-transition: all 0.5s ease-in-out;
+                        -o-transition: all 0.5s ease-in-out;
+                        transition: all 0.5s ease-in-out;
+                        
+                        a {
+                            display: -webkit-box;
+                            display: -ms-flexbox;
+                            display: flex;
+                            -webkit-box-pack: start;
+                            -ms-flex-pack: start;
+                            justify-content: flex-start;
+                            -webkit-box-align: center;
+                            -ms-flex-align: center;
+                            align-items: center;
+                            color: #ffffff;
+                            padding: .6125rem 1.5rem;
+                            font-weight: 600;
+                            font-size: .9125rem;
+                            -webkit-transition: all 0.4s ease;
+                            -o-transition: all 0.4s ease;
+                            transition: all 0.4s ease;
+                            i {
+                                margin-right: 1rem;
+                                font-size: 18px;
+                            }
+                            span {
+                                flex-grow: 1;
+                                text-transform: capitalize;
+                            }
+                        }
+                        &.is-submenu{
+                            a{
+                                position: relative;
+                                &::after {
+                                    content: "\f054";
+                                    font-family: "Font Awesome 5 Free";
+                                    text-transform: initial;
+                                    position: absolute;
+                                    right: 10px;
+                                    top: 8px;
+                                    font-size: 1rem;
+                                    -webkit-transition: all 0.4s ease;
+                                    -o-transition: all 0.4s ease;
+                                    transition: all 0.4s ease;
+        
+                                }
+                            }
+                            .submenu {
+                                display: none;
+                                li{
+                                    a {
+                                        padding-left: 3.5rem;
+                                        font-size: .75rem;
+                                        &::after {
+                                            display: none;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        &.active{
+                            background-color: #2332BA;
+                            &.is-submenu{
+                                a{
+                                    color: #23D1FD;
+                                    &::after{
+                                        content: "\f077";
+                                    }
+                                }
+                                .submenu {
+                                    display: block;
+                                }
+                            }
+                        }
+                        &:hover {
+                            background-color: #2332BA;
+                            a {
+                                color: #23D1FD;
+                            }
+                            &::after{
+                                color: #2332ba;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .content{
+        width: calc(100% - 350px);
+        margin-left: 350px;
+        height: 100%;
+        overflow-y: scroll;
+        padding: 3.75rem 2.325rem 1rem;
+        -webkit-transition: all 1s ease-in-out;
+        -o-transition: all 1s ease-in-out;
+        transition: all 1s ease-in-out;
+        a{
+            &.logo{
+                img{
+                    max-width: 100px;
+                }
+            }
+        }
+        h2{
+            font-size: 24px;
+            color: #321232;
+            margin-bottom: 20px;
+        } 
+        .bars{
+            .open-nav{
+                border-radius: 50%;
+                color: #323232;
+                font-size: 24px;
+                transition: all .4s ease;
+                &:hover{
+                   color: #0055ff;
+                }
+            }
+        }
+    }
+    &.sidenav-overlay {
+        .content{
+            width: 100%;
+            margin-left: 0;
+        }
+        aside.sidenav {
+            margin-left: -350px;
+        }
+    }
+
+    &.sidenav-collapse{
+        &.sidenav-partial-push{
+            aside.sidenav{
+                max-width: 50px;
+                .sidenav-header{
+                    padding: 1rem .6125rem;
+                    
+                    a{
+                        &.logo{
+                            img{
+                                display: none;
+                            }
+                        }
+                    }
+                }
+                .sidenav-body{
+                    ul.sidenav-menu {
+                        li {
+                            a {
+                                padding: 1rem;
+                                span{
+                                    display: none;
+                                }
+                            }
+                            &.is-submenu{
+                                a{
+                                    &::after {
+                                        display: none;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                } 
+            }
+            .content{
+                width: calc(100% - 50px);
+                margin-left: 50px;
+            }
+        }
+        &.sidenav-push{
+            aside{
+                margin-left: -380px;
+            }
+            .content{
+                width: 100%;
+                margin-left: 0;
+            }
+        }
+        &.sidenav-overlay{
+            aside.sidenav{
+                margin-left:0;
+                box-shadow: 0 0 20px 0px #C7C7C7;
+            }
+        }
+    }
+    &.is-opacity {
+        background: rgba(0, 0, 0, .4);
+        box-shadow:none;
+    }
+}

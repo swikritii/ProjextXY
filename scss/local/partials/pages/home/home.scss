@@ -1,0 +1,74 @@
+.home-form-section {
+  overflow: hidden;
+  .form-wrap {
+    max-width: 1000px;
+    margin: auto;
+    padding-top: 15px;
+    position: relative;
+    z-index: 11;
+    .buttons {
+      position: relative;
+
+      .tooltip {
+        font-size: 12px;
+        left: auto;
+        top: 0;
+        right: 0;
+        position: absolute;
+        visibility: hidden;
+        opacity: 0;
+        padding: 2px 8px;
+        @include radius(10px);
+        background: $primary-xs-light;
+        @include transition(all 0.4s ease);
+      }
+      button {
+        &:hover {
+          & ~ {
+            .tooltip {
+              top: 5px;
+              visibility: visible;
+              opacity: 1;
+            }
+          }
+        }
+        &.active {
+          &:hover {
+            & ~ {
+              .tooltip {
+                visibility: hidden;
+                opacity: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .select-list-container {
+    @include display-flex(flex);
+    @include align-items-center;
+    @include justify-content-between;
+    @include flex-wrap(wrap);
+    @media #{$breakpoint-xs} {
+      @include flex-direction-column(column);
+    }
+  }
+  .select-grid {
+    margin-bottom: 4rem;
+    flex: 0 0 45%;
+    max-width: 45%;
+    @media #{$breakpoint-xs} {
+      flex: 0 0 100%;
+      max-width: 100%;
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+    label {
+      color: $heading-color;
+      margin-bottom: 15px;
+      line-height: 1.2;
+      font-size: 1.05rem;
+    }
+  }
+}

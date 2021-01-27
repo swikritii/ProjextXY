@@ -1,0 +1,305 @@
+.popup,
+.window-popup {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  @include display-flex(flex);
+  @include justify-content-center;
+  @include align-items-center;
+  width: 100%;
+  height: 100%;
+  z-index: 11111;
+  opacity: 0;
+  visibility: hidden;
+  @include transition(all 0.5s ease-in-out);
+  .popup-container {
+    @include display-flex(flex);
+    @include flex-direction-row(row);
+    @include justify-content-around;
+    margin: 2rem;
+    .popup-body {
+      max-width: 800px;
+      width: 100%;
+      min-width: 800px;
+      max-height: calc(100vh - 32px);
+      // @include radius(10px);
+      box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2),
+        0px 24px 38px 3px rgba(0, 0, 0, 0.14),
+        0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+      @include display-flex(flex);
+      @include flex-direction-column(column);
+      flex-grow: 0;
+      flex-shrink: 0;
+      background-color: $white-color;
+      position: relative;
+      @include transform(scale(0));
+      @include transition(all 0.9s ease-in-out);
+      @media #{$breakpoint-lg-desktop} {
+        max-width: 700px;
+        min-width: 700px;
+      }
+      @media #{$breakpoint-desktop} {
+        max-width: 576px;
+        min-width: 576px;
+      }
+      @media #{$breakpoint-sm} {
+        max-width: 360px;
+        min-width: 360px;
+      }
+      @media #{$breakpoint-xs} {
+        max-width: 300px;
+        min-width: 300px;
+      }
+
+      span {
+        &.close-icon {
+          position: absolute;
+          right: 0.5rem;
+          top: 0.5rem;
+          z-index: 2;
+          width: 35px;
+          height: 35px;
+          @include display-flex(flex);
+          @include justify-content-center;
+          @include align-items-center;
+          @include flex-direction-column(column);
+          border: 0px solid $border-color;
+          @include radius(100%);
+          cursor: pointer;
+          @include transition(all 0.5s ease-in-out);
+          &:hover {
+            color: $secondary-color;
+            // border-color:$secondary-color;
+          }
+          i {
+            font-size: 20px;
+          }
+          @media #{$breakpoint-desktop} {
+            width: 25px;
+            height: 25px;
+            i {
+              font-size: 18px;
+            }
+          }
+        }
+      }
+      .popup-header {
+        @include display-flex(flex);
+        @include justify-content-between;
+        @include align-items-center;
+        flex-shrink: 0;
+        margin: 0;
+        padding: 0 2rem;
+        padding-top: 2.5rem;
+
+        // border-bottom: 1px solid $border-color;
+        h3 {
+          font-size: 1.5rem;
+          line-height: 2rem;
+          font-weight: 600;
+          letter-spacing: 0.0125em;
+          text-transform: capitalize;
+          @media #{$breakpoint-lg-desktop} {
+            font-size: 1.125rem;
+            line-height: 1rem;
+          }
+        }
+        &.no-flex {
+          display: initial;
+        }
+      }
+      .popup-content {
+        -webkit-box-flex: 1;
+        flex-grow: 1;
+        margin: 0;
+        padding: 2rem;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        // max-height: calc(100vh - 250px);
+        // height: 100vh;
+        &.pd-0 {
+          padding: 0;
+        }
+        @media #{$breakpoint-desktop} {
+          padding: 1rem;
+        }
+        &::-webkit-scrollbar {
+          width: 4px;
+          background: $border-color;
+          @include radius(4px);
+        }
+
+        &::-webkit-scrollbar-track {
+          background-color: $border-color;
+          @include radius(4px);
+        }
+
+        &::-webkit-scrollbar-thumb {
+          @include radius(4px);
+          background: $border-dark;
+        }
+      }
+      .popup-footer {
+        @include display-flex(flex);
+        position: relative;
+        flex-shrink: 0;
+        @include flex-wrap(wrap);
+        @include justify-content-start;
+        @include align-items-center;
+        min-height: 52px;
+        margin: 0;
+        padding: 0 2rem 2.5rem 2rem;
+        // border-top: 1px solid $border-color;
+      }
+    }
+    &.lg-popup {
+      .popup-body {
+        position: relative;
+        padding: 2rem;
+        max-width: 991px;
+        width: 100%;
+        min-width: 991px;
+        span {
+          &.close-icon {
+            right: 1.5rem;
+            top: 1.5rem;
+          }
+        }
+        @media #{$breakpoint-lg-desktop} {
+          padding: 1rem;
+          min-width: 800px;
+          max-width: 800px;
+          span {
+            &.close-icon {
+              right: 1rem;
+              top: 1rem;
+            }
+          }
+        }
+        @media #{$breakpoint-ls} {
+          max-width: 768px;
+          min-width: 768px;
+        }
+        @media #{$breakpoint-pt} {
+          max-width: 576px;
+          min-width: 576px;
+        }
+        @media #{$breakpoint-sm} {
+          max-width: 360px;
+          min-width: 360px;
+        }
+        @media #{$breakpoint-xs} {
+          max-width: 300px;
+          min-width: 300px;
+        }
+      }
+    }
+    &.xl-popup {
+      .popup-body {
+        position: relative;
+        padding: 2rem;
+        max-width: 1200px;
+        width: 100%;
+        min-width: 1200px;
+        @media #{$breakpoint-lg-desktop} {
+          max-width: 1000px;
+          min-width: 1000px;
+        }
+        @media #{$breakpoint-desktop} {
+          max-width: 900px;
+          min-width: 900px;
+        }
+        @media #{$breakpoint-ls} {
+          max-width: 768px;
+          min-width: 768px;
+        }
+        @media #{$breakpoint-pt} {
+          max-width: 576px;
+          min-width: 576px;
+        }
+        @media #{$breakpoint-sm} {
+          max-width: 360px;
+          min-width: 360px;
+        }
+        @media #{$breakpoint-xs} {
+          max-width: 300px;
+          min-width: 300px;
+        }
+        .popup-content {
+          padding: 0;
+        }
+      }
+    }
+    &.sm-popup {
+      .popup-body {
+        max-width: 350px;
+        min-width: 350px;
+        width: 100%;
+        @include radius(20px);
+        position: relative;
+        @media #{$breakpoint-desktop} {
+          max-width: 300px;
+          min-width: 300px;
+        }
+      }
+    }
+  }
+  &.popup_status {
+    .status {
+      figure {
+        height: 220px;
+        background: $primary-color;
+        @include flex-hr-center;
+        @include radius(10px);
+        border-bottom-right-radius: 30%;
+        border-bottom-left-radius: 30%;
+        img {
+          max-width: 70px;
+        }
+        @media #{$breakpoint-desktop} {
+          height: 200px;
+          img {
+            max-width: 60px;
+          }
+        }
+      }
+      .status-content {
+        padding: 2rem;
+        text-align: center;
+        h1 {
+          margin-bottom: 15px;
+        }
+        p {
+          line-height: 1.2;
+        }
+      }
+      .buttons {
+        margin: 1.5rem 0;
+        button {
+          @include radius(20px);
+          @include box-shadow(0 4px 10px rgba($shadow-light, 0.2));
+          &:hover {
+            @include box-shadow(0 2px 10px rgba($shadow-light, 0.2));
+          }
+        }
+      }
+    }
+  }
+
+  &.open {
+    z-index: 9;
+    opacity: 1;
+    visibility: visible;
+    /* &.popup_status {
+      z-index: 111111;
+    } */
+    .popup-container {
+      .popup-body {
+        @include transform(scale(1));
+        filter: alpha(opacity=100);
+      }
+    }
+  }
+}

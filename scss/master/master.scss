@@ -1,0 +1,9 @@
+.admin-main {
+  @include animation(opacity 1s ease-in-out);
+}
+
+.banner-caption {
+  .caption-content {
+    @include animation(slowRevealationTop 1s ease-in-out);
+  }
+}

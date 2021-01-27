@@ -1,0 +1,79 @@
+.progress-step-wrap{
+    padding: 20px 0;
+    ul{
+        &.progress-step{
+            margin: 0 auto;
+            @include display-flex(flex);
+            @include justify-content-around;
+            @include align-items-center;
+            // overflow: hidden;
+            position: relative;
+            z-index: 1;
+            li{
+                @include flex(0 0 12%);
+                max-width: 12%;
+                position: relative;
+                text-align: center;
+                // font-weight: 600;
+                // color: $grey-light;
+                span{
+                    background: $white-color;
+                    padding-right: 10px;
+                    display: block;
+                    margin-top: 20px;
+                }
+                &::after{
+                    content:'';
+                    width:100%;
+                    border: 1px dashed $border-dark;
+                    position: absolute;
+                    z-index: -1;
+                    top: 14px;
+                    left: -50%;
+                }
+                &::before{
+                    content:'radio_button_checked';
+                    font-family: 'Material Icons';
+                    color: $border-dark;
+                    display: inline-block;
+                    margin: 0 auto;
+                    position: relative;
+                    z-index: 2;
+                    font-size: 1.2rem;
+                    cursor: pointer;
+                    vertical-align: middle;
+                    font-weight: 400;
+                    background: $white-color;
+                    @include transformScale(1.4);
+                    @media #{$breakpoint-desktop}{
+                        @include transformScale(1.1);
+                    }
+                }
+                &:first-child{
+                    &::after{
+                        content:none;
+                    }
+                }
+                &.active{
+                    color:$heading-color;
+                    font-size: 1.1rem;
+                    font-weight: 700;
+                    &::before{
+                        // background: transparent;
+                        @include transformScale(2.2);
+                        color:$secondary-color;
+                        @media #{$breakpoint-desktop}{
+                            @include transformScale(1.8);
+                        }
+                    }
+                    @media #{$breakpoint-desktop}{
+                        font-size: .938rem;
+                    }
+                }
+            }
+            @media #{$breakpoint-lg}{
+                width: 100%;
+            }
+        }
+    }
+}

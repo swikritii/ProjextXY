@@ -1,0 +1,16 @@
+@import "section/section";
+@import "home/home";
+
+.page-header {
+  margin-bottom: 1rem;
+}
+
+.container-in {
+  padding: 0 6rem;
+}
+
+.hoverable-link {
+  display: inline;
+  cursor: pointer;
+  height: 100%;
+}

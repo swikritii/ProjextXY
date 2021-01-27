@@ -1,0 +1,14 @@
+.notification{
+    position: relative;
+    // margin-right: 15px;
+    .badge{
+        position: absolute;
+        top: -20px;
+        right: -20px;
+    }
+    &:hover{
+        .badge{
+            transform: scale(1.1);
+        }
+    }
+}

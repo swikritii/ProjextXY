@@ -1,0 +1,109 @@
+.table {
+  width: 100%;
+  color: $body-color;
+  @include radius(10px);
+  border-collapse: collapse;
+  &.is-border {
+    tr {
+      border: 1px solid $border-light;
+    }
+  }
+}
+.table td,
+.table th {
+  padding: 0.5rem 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid $border-light;
+}
+.table thead th {
+  //   vertical-align: bottom;
+  border-bottom: 1px solid $border-light;
+  background-color: $bg-color;
+  color: $heading-color;
+  text-transform: capitalize;
+}
+.table tbody {
+  td {
+    &.name {
+      font-weight: 700;
+      color: $heading-color;
+      text-transform: capitalize;
+    }
+    &.Location {
+      text-transform: capitalize;
+    }
+  }
+}
+/* .table tbody + tbody {
+    border-top: 2px solid $border-color;
+} */
+.table thead.table-pagination th {
+  background: $bg-color;
+  padding: 0.25rem 1rem;
+  color: $body-color;
+}
+.table-sm td,
+.table-sm th {
+  padding: 0.3rem;
+}
+
+.table-bordered td,
+.table-bordered th {
+  border: 1px solid $border-light;
+}
+
+@media (max-width: 575.98px) {
+  .table-responsive-sm {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .table-responsive-sm > .table-bordered {
+    border: 0;
+  }
+}
+@media (max-width: 767.98px) {
+  .table-responsive-md {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .table-responsive-md > .table-bordered {
+    border: 0;
+  }
+}
+@media (max-width: 991.98px) {
+  .table-responsive-lg {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .table-responsive-lg > .table-bordered {
+    border: 0;
+  }
+}
+@media (max-width: 1440px) {
+  .table-responsive-xl {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .table-responsive-xl > .table-bordered {
+    border: 0;
+  }
+}
+.table-responsive {
+  // border: 1px solid $border-light;
+  display: block;
+  width: 100%;
+  // @include radius(10px);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.table-responsive > .table-bordered {
+  border: 0;
+}

@@ -1,0 +1,111 @@
+.search-bar {
+  @include display-flex(flex);
+  @include justify-content-end;
+  @include align-items-center;
+
+  &.is-full {
+    .search-wrap {
+      max-width: 100%;
+    }
+  }
+  .search-wrap {
+    @include display-flex(flex);
+    @include justify-content-between;
+
+    @include align-items-stretch;
+    background-color: $bg-color;
+    flex-grow: 1;
+    max-width: 240px;
+    &.is-border {
+      border: 1px solid $border-color;
+    }
+    &.is-rounded {
+      @include radius(5px);
+    }
+    &.is-auto {
+      width: auto;
+    }
+    input {
+      &.form-control {
+        flex-grow: 1;
+        height: calc(1.6rem + 0.75rem + 2px);
+        border: none;
+        display: initial;
+        @include radius(5px);
+        background-color: $bg-color;
+        @media #{$breakpoint-desktop} {
+          height: calc(1.5rem + 0.5rem + 2px);
+        }
+        &:focus {
+          color: $grey-color;
+          background-color: $bg-color;
+        }
+      }
+    }
+
+    &.is-transparent {
+      background: transparent;
+      border: 0;
+
+      input {
+        &.form-control {
+          background: transparent;
+        }
+      }
+    }
+
+    span {
+      text-align: center;
+      @include display-flex(flex);
+      @include justify-content-center;
+      @include align-items-center;
+      @include flex-direction-column(column);
+      cursor: pointer;
+
+      &.is-pr {
+        padding-right: 10px;
+      }
+
+      &.is-pl {
+        padding-left: 10px;
+      }
+
+      i {
+        color: $text-color;
+      }
+    }
+  }
+
+  button {
+    padding: 0;
+    width: 40px;
+    height: 37px;
+    min-width: initial;
+    border-color: $border-dark;
+    @include radius(8px);
+    margin-left: 0.6125rem;
+    background-color: $white-color;
+    color: $secondary-color;
+    margin-left: 1rem;
+
+    &:focus,
+    &:hover {
+      background-color: $secondary-color;
+      color: $white-color;
+      outline: none;
+      -webkit-outline: none;
+      box-shadow: none;
+    }
+  }
+
+  a {
+    &.toggle-icon {
+      margin-left: 1rem;
+      color: $body-color;
+
+      svg {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}

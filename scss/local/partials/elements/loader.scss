@@ -1,0 +1,8 @@
+.loader {
+  border: 16px solid $bg-color;
+  @include radius(50%);
+  border-top: 16px solid $secondary-color;
+  width: 100px;
+  height: 100px;
+  @include animation(spin 2s linear infinite);
+}

@@ -1,0 +1,174 @@
+.work-procedure {
+  @include display-flex(flex);
+  @include align-items-center;
+  @include justify-content-center;
+  @media #{$breakpoint-xl} {
+    @include flex-direction-column(column);
+  }
+
+  .work-sub-procedure {
+    @include radius(50%);
+    position: relative;
+    .wrap {
+      width: 280px;
+      height: 280px;
+      background: $white-color;
+      @include box-shadow(-10px 0 30px 1px rgba($text-color, 0.9));
+      @include radius(50%);
+      padding: 20px;
+      text-align: center;
+      position: relative;
+      margin: 30px;
+      @media #{$breakpoint-desktop} {
+        width: 260px;
+        height: 260px;
+      }
+      .procedure-step {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        z-index: 1;
+        right: -20px;
+        top: -20px;
+        @include radius(50%);
+        border: 8px solid $white-color;
+        @include box-shadow(-5px 0 15px 1px rgba($text-color, 0.6));
+        @media #{$breakpoint-xl} {
+          bottom: -50px;
+          top: auto;
+        }
+        @media #{$breakpoint-xs} {
+          left: -20px;
+          top: 0;
+          bottom: auto;
+        }
+        .step-count {
+          @include center;
+          color: $white-color;
+          font-size: 2.25rem;
+          font-weight: 700;
+          font-family: $heading-fonts;
+        }
+      }
+      .content-wrap {
+        @include transformY(15%);
+      }
+      figure {
+        width: 50px;
+        height: 50px;
+        margin: auto;
+        position: relative;
+        img {
+          margin: 0;
+          @include center;
+        }
+      }
+      span.title {
+        display: block;
+        font-size: 20px;
+        font-family: $heading-fonts;
+        font-weight: 600;
+        margin: 15px 0;
+        text-transform: uppercase;
+      }
+      p {
+        color: $heading-color;
+        font-family: $span-fonts;
+        font-size: 13px;
+        line-height: 20px;
+        font-weight: 600;
+        width: 80%;
+        margin: auto;
+        @media #{$breakpoint-desktop} {
+          width: 90%;
+        }
+        @media #{$breakpoint-xs} {
+          width: 100%;
+        }
+      }
+    }
+    &.is-orange {
+      span.title {
+        color: $orange-color;
+      }
+      .procedure-step {
+        background: $orange-color;
+      }
+    }
+    &.is-blue {
+      span.title {
+        color: $blue-color;
+      }
+      .procedure-step {
+        background: $blue-color;
+      }
+    }
+    &.is-green {
+      span.title {
+        color: $green-color;
+      }
+      .procedure-step {
+        background: $green-color;
+      }
+    }
+    &:not(:last-child) {
+      padding-right: 70px;
+      @media #{$breakpoint-xl} {
+        margin-bottom: 70px;
+        .wrap {
+          top: -35px;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+      @media #{$breakpoint-xs} {
+        margin-bottom: 0;
+        padding-right: 0;
+        .wrap {
+          top: 0;
+          left: 0%;
+          transform: translateX(0%);
+        }
+      }
+      &::after {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        content: "";
+        position: absolute;
+        background-image: url("././../img/home/circle-arrow.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: left;
+        z-index: -1;
+        @media #{$breakpoint-xl} {
+          @include rotate(90deg);
+        }
+        @media #{$breakpoint-xs} {
+          background-image: none;
+        }
+      }
+    }
+    &:last-child {
+      &::after {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        content: "";
+        position: absolute;
+        background-image: url("././../img/home/circle.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: left;
+        @media #{$breakpoint-xl} {
+          @include rotate(90deg);
+        }
+        @media #{$breakpoint-xs} {
+          background-image: none;
+        }
+      }
+    }
+  }
+}

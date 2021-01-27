@@ -1,0 +1,42 @@
+.breadcrumb{
+    padding:.6125rem 1rem;
+    background-color: $white-color;
+    border-bottom: 1px solid $border-color;
+    ol{
+        @include display-flex(flex);
+        @include justify-content-start;
+        @include align-items-center;
+        margin:0;
+        li{
+            font-weight: 600;
+            text-transform: capitalize;
+            @include display-flex(flex);
+            @include align-items-center;
+            &.current{
+                color: #0055ff;
+            }
+            &:hover{
+                a{
+                    color: #0055ff;
+                }
+            }
+            a{
+                color:$body-color;
+                font-weight: 400;
+                &:hover{
+                    color:$primary-dark;
+                }
+            }
+            &:not(:last-child){
+                &::after{
+                    content:'chevron_right';
+                    font-family: 'Material Icons';
+                    display: inline-flex;
+                    margin:0 .6125rem;
+                    text-transform: initial;
+                    font-size: 1.2rem;
+                }
+            }
+        }
+    }
+}

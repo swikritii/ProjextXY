@@ -1,0 +1,465 @@
+.common-link,
+a.common-link,
+[class*="common-button"] {
+  -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  font-size: 0.938rem;
+  text-decoration: none;
+  text-transform: capitalize;
+  padding: 0.565rem 0.875rem;
+  color: $secondary-color;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 140px;
+  min-height: 40px;
+  border: none;
+  outline: none;
+  line-height: inherit;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-appearance: none;
+  overflow: hidden;
+  vertical-align: middle;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+
+  &:hover {
+    color: $secondary-light;
+
+    &.is-icon {
+      i {
+        color: $secondary-light;
+
+        &.is-circle {
+          border: 1px solid $secondary-light;
+        }
+      }
+    }
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:disabled {
+    color: $white-color;
+    background-color: $primary-light;
+    border-color: 0;
+    cursor: not-allowed;
+  }
+
+  @media #{$breakpoint-desktop} {
+    width: 140px;
+    font-size: 0.825rem;
+    padding: 0.425rem 0.75rem;
+  }
+
+  &.is-icon {
+    svg,
+    i {
+      color: $secondary-color;
+      transition: all 0.3s ease-in-out;
+      font-weight: 500;
+      position: relative;
+
+      &.is-mr {
+        margin-right: 0.5rem;
+      }
+
+      &.is-ml {
+        margin-left: 0.5rem;
+      }
+
+      &.is-circle {
+        transition: all 0.3s ease-in-out;
+        border: 1px solid $secondary-color;
+        @include radius(50%);
+        padding: 10px;
+        margin-right: 15px !important;
+
+        @media #{$breakpoint-desktop} {
+          padding: 6px;
+        }
+      }
+
+      @media #{$breakpoint-desktop} {
+        &.is-mr {
+          margin-right: 0.25rem;
+        }
+
+        &.is-ml {
+          margin-left: 0.25rem;
+        }
+      }
+    }
+  }
+
+  &.is-disable {
+    color: white;
+    background-color: rgb(196, 196, 196);
+    border-color: rgb(196, 196, 196);
+    cursor: none;
+  }
+
+  &.is-bg {
+    color: $white-color;
+    background-color: $primary-color;
+    border-color: $primary-color;
+
+    &:disabled {
+      color: $white-color;
+      background-color: $primary-light;
+      border-color: transparent;
+      cursor: not-allowed;
+    }
+
+    &.is-disable {
+      color: $white-color;
+      background-color: $primary-xs-light;
+      border-color: $primary-xs-light;
+      cursor: not-allowed;
+      &:hover {
+        background-color: $primary-xs-light;
+        border-color: $primary-xs-light;
+      }
+    }
+
+    &:hover {
+      background-color: $primary-light;
+      border-color: $primary-light;
+      color: $white-color;
+    }
+  }
+
+  &.is-light-bg {
+    background: $white-color;
+    color: $secondary-color;
+
+    &:hover {
+      background: $secondary-color;
+      color: $white-color;
+    }
+  }
+
+  &.is-full-width {
+    width: 100%;
+  }
+
+  &.is-clear {
+    background-color: transparent;
+    border-width: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: $secondary-color;
+    padding: 0;
+    min-height: initial;
+    min-width: initial;
+
+    i {
+      color: $secondary-color;
+    }
+
+    &.is-dark {
+      color: $heading-color;
+
+      i {
+        color: $heading-color;
+      }
+    }
+
+    &:hover {
+      color: rgba($secondary-color, 0.7);
+
+      i {
+        color: rgba($secondary-color, 0.7);
+      }
+    }
+  }
+
+  &.is-border {
+    background-color: $white-color;
+    color: $heading-color;
+    border: 1px solid $body-color;
+
+    &:hover {
+      background-color: $secondary-light;
+      border-color: $secondary-color;
+    }
+
+    &.is-secondary {
+      border: 1px solid $secondary-color;
+      color: $secondary-color;
+    }
+
+    &.is-icon {
+      i {
+        color: $body-color;
+      }
+    }
+  }
+
+  &.is-white-border {
+    background: transparent;
+    color: $white-color;
+    border: 1px solid $white-color;
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: " ";
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 0;
+      @include transition(all 0.2s ease);
+      z-index: -1;
+    }
+
+    &:hover {
+      border: 1px solid $primary-color;
+
+      &::before {
+        height: 100%;
+        background: $primary-color;
+      }
+    }
+  }
+
+  &.no-border {
+    background-color: transparent;
+    color: $white-color;
+    border-color: transparent;
+
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+
+  &.is-sm {
+    padding: 0.425rem 0.75rem;
+    min-width: 120px;
+
+    @media #{$breakpoint-desktop} {
+      width: 125px;
+      padding: 0.25rem 0.75rem;
+    }
+  }
+
+  &.is-auto {
+    width: auto;
+    min-width: auto;
+  }
+
+  &.is-rounded {
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+  }
+
+  &.is-md-rounded {
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+  }
+}
+
+button.load-more-button,
+a.load-more-button {
+  @include display-flex(flex);
+  @include display-flex(flex);
+  @include justify-content-center;
+  @include align-items-center;
+  background-color: $bg-color;
+  font-weight: 600;
+  text-transform: capitalize;
+  color: $heading-color;
+  width: 100%;
+  padding: 0.5rem 1rem;
+
+  i {
+    text-transform: initial;
+    color: $primary-dark;
+    margin-left: 0.5rem;
+  }
+}
+
+.buttons {
+  @include display-flex(flex);
+
+  button,
+  a {
+    &:not(:last-child) {
+      margin-right: 0.75rem;
+    }
+  }
+
+  &.is-center {
+    @include display-flex(flex);
+    @include justify-content-center;
+    @include align-items-center;
+  }
+
+  &.is-between {
+    @include display-flex(flex);
+    @include justify-content-between;
+    @include align-items-center;
+  }
+
+  &.is-end {
+    @include display-flex(flex);
+    @include justify-content-end;
+    @include align-items-center;
+  }
+
+  &.section-buttons {
+    margin: 30px 0;
+  }
+}
+
+[class*="circle-icon"] {
+  width: 40px;
+  height: 40px;
+  @include display-flex(flex);
+  @include justify-content-center;
+  @include align-items-center;
+  @include flex-direction-column(column);
+  color: $body-color;
+  @include radius(100%);
+  min-height: 40px;
+  cursor: pointer;
+  @include transition(all 0.4s ease-in-out);
+
+  &.is-bg {
+    background-color: $primary-light;
+    color: $primary-dark;
+
+    &:hover {
+      background-color: $primary-color;
+      color: $white-color;
+    }
+  }
+
+  &.is-border {
+    border: 1px solid $border-color;
+  }
+
+  &:not(:last-child) {
+    margin-right: 0.6125rem;
+  }
+}
+
+.circle-icons {
+  @include display-flex(flex);
+  @include align-items-center;
+
+  &.is-start {
+    @include justify-content-start;
+  }
+
+  &.is-end {
+    @include justify-content-end;
+  }
+
+  &.is-center {
+    @include justify-content-center;
+  }
+
+  &.is-vertical {
+    @include justify-content-center;
+    @include flex-direction-column(column);
+
+    span,
+    a {
+      margin-right: 0;
+
+      &:not(:last-child) {
+        margin-bottom: 0.6125rem;
+      }
+    }
+  }
+}
+
+[class*="square-icon"] {
+  width: 50px;
+  height: 50px;
+  @include display-flex(flex);
+  @include justify-content-center;
+  @include align-items-center;
+  @include flex-direction-column(column);
+  color: $body-color;
+  @include radius(5px);
+  cursor: pointer;
+  @include transition(all 0.4s ease-in-out);
+
+  &.is-blue {
+    background-color: $blue-light;
+  }
+
+  &.is-red {
+    background-color: $red-light;
+  }
+
+  &.is-green {
+    background-color: $primary-light;
+  }
+
+  &.is-orange {
+    background-color: $orange-light;
+  }
+}
+
+.button-container {
+  position: relative;
+  width: 180px;
+  min-height: 35px;
+  overflow: hidden;
+  border: 1px solid $secondary-color;
+  transition: 0.5s;
+
+  .mas {
+    position: absolute;
+    color: $secondary-color;
+    width: 101%;
+    height: 100%;
+    overflow: hidden;
+    font-weight: 700;
+    font-size: 0.938rem;
+    @include display-flex(flex);
+    @include align-items-center;
+    @include justify-content-center;
+  }
+
+  button.common-button {
+    width: 101%;
+    height: 100%;
+    background: $secondary-color;
+    color: $white-color;
+    -webkit-mask: url(https://raw.githubusercontent.com/pizza3/asset/master/natureSmaller.png);
+    mask: url(https://raw.githubusercontent.com/pizza3/asset/master/natureSmaller.png);
+    -webkit-mask-size: 7100% 100%;
+    mask-size: 7100% 100%;
+    -webkit-animation: ani2 0.7s steps(70) forwards;
+    animation: ani2 0.7s steps(70) forwards;
+
+    &:hover {
+      -webkit-animation: ani 0.7s steps(70) forwards;
+      animation: ani 0.7s steps(70) forwards;
+    }
+  }
+
+  &.is-light {
+    .mas {
+      background: $secondary-color;
+      color: $white-color;
+    }
+
+    button.common-button {
+      background: $white-color;
+      color: $secondary-color;
+    }
+  }
+}

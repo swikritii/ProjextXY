@@ -1,0 +1,113 @@
+footer {
+  &.site-footer {
+    padding: 50px 0 40px;
+    background-color: $primary-color;
+    color: $white-color;
+    font-size: 14px;
+    position: relative;
+    font-weight: 300;
+    border-bottom: 1px solid $white-color;
+    .row {
+      .grid-col {
+        &:last-child {
+          .footer-widget {
+            text-align: right;
+            @media #{$breakpoint-lg} {
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+    .footer-widget {
+      a {
+        color: $white-color;
+        &:hover {
+          color: $primary-light;
+        }
+        &.footer-logo {
+          font-family: $logo-fonts;
+          font-weight: 500;
+          font-size: 30px;
+          line-height: 30px;
+          margin-bottom: 15px;
+          display: block;
+          cursor: pointer;
+          color: $white-color;
+        }
+      }
+      p {
+        max-width: 430px;
+        line-height: 2;
+      }
+      h6 {
+        color: $white-color;
+        text-transform: capitalize;
+        margin-bottom: 1.5rem;
+        font-size: 22px;
+        font-weight: 300;
+      }
+
+      ul {
+        &.link-lists {
+          li {
+            border: none;
+            padding: 0;
+            margin-bottom: 8px;
+            padding-left: 15px;
+            position: relative;
+            a {
+              &:hover {
+                color: $primary-light;
+              }
+            }
+            &::before {
+              position: absolute;
+              content: "chevron_right";
+              font-family: "Material Icons";
+              color: $primary-xs-light;
+              font-size: 12px;
+              top: 0;
+              left: 0;
+            }
+          }
+          @media #{$breakpoint-lg} {
+            @include flex-hr-center;
+          }
+        }
+        &.rules-link-list {
+          @include display-flex(flex);
+          li {
+            padding: 0;
+            &::before {
+              display: none;
+            }
+            &:not(:last-child) {
+              &::after {
+                content: "|";
+                display: inline-flex;
+                margin: 0 0.75rem;
+                line-height: 24px;
+                font-size: 16px;
+                color: $white-color;
+              }
+            }
+          }
+          @media #{$breakpoint-lg} {
+            @include justify-content-center;
+          }
+        }
+      }
+      @media #{$breakpoint-lg} {
+        margin-bottom: 2rem;
+        text-align: center;
+        p {
+          margin: auto;
+        }
+        .social-list {
+          @include justify-content-center;
+        }
+      }
+    }
+  }
+}

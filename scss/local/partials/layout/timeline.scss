@@ -1,0 +1,201 @@
+.timeline-section {
+  overflow: hidden;
+  .timeline-in {
+    position: relative;
+    z-index: 1;
+    .content {
+      margin-top: 10vh;
+    }
+
+    .timeline-video-tutorial {
+      width: 90%;
+      margin: 0 auto;
+      @include radius(10px);
+      padding: 30px;
+      text-align: center;
+      -webkit-background-image: linear-gradient(
+        0deg,
+        $primary-color,
+        $primary-dark
+      );
+      background-image: linear-gradient(0deg, $primary-color, $primary-dark);
+      @media #{$breakpoint-lg-desktop} {
+        padding: 24px;
+      }
+      @media #{$breakpoint-lg} {
+        margin-top: 40px;
+      }
+      h3 {
+        color: $white-color;
+        span {
+          color: $primary-color;
+        }
+      }
+      iframe {
+        margin: 20px auto 10px;
+        width: 90%;
+        height: 180px;
+        @media #{$breakpoint-lg-desktop} {
+          margin: 10px auto 6px;
+          height: 160px;
+        }
+        @media #{$breakpoint-lg} {
+          height: 200px;
+        }
+      }
+      p {
+        font-weight: 300;
+        line-height: 1.5;
+        font-size: 0.875rem;
+        opacity: 0.8;
+        color: darken($border-color, 10%);
+        @media #{$breakpoint-lg-desktop} {
+          font-size: 0.685rem;
+        }
+      }
+    }
+  }
+}
+
+.timeline {
+  ul.timeline-process {
+    position: relative;
+    &::before {
+      content: "";
+      width: 2px;
+      height: 98%;
+      background: $border-color;
+      left: 10px;
+      top: 0;
+      position: absolute;
+    }
+    li {
+      margin-bottom: 40px;
+      position: relative;
+      @media #{$breakpoint-lg-desktop} {
+        margin-bottom: 30px;
+      }
+      &::before,
+      &::after {
+        @include clear;
+      }
+      .timeline-circle {
+        background: $bg-color;
+        border: 1px solid $border-dark;
+        width: 22px;
+        height: 22px;
+        position: absolute;
+        top: 0;
+        left: 0%;
+        overflow: hidden;
+        @include radius(50%);
+        @include display-flex(flex);
+        @include align-items-center;
+        @include justify-content-center;
+        &::after {
+          content: "stop_circle";
+          font-family: "Material Icons";
+          position: absolute;
+          color: $border-dark;
+          font-size: 12px;
+          line-height: 0;
+        }
+        @media #{$breakpoint-lg-desktop} {
+          width: 18px;
+          height: 18px;
+          left: 2px;
+          &::after {
+            font-size: 9px;
+            top: 8px;
+          }
+        }
+      }
+      a {
+        font-weight: 600;
+        cursor: pointer;
+        padding-left: 60px;
+        font-size: 1.25rem;
+        color: $body-color;
+        line-height: 1.1;
+        @media #{$breakpoint-lg-desktop} {
+          font-size: 1.05rem;
+        }
+        @media #{$breakpoint-lg-desktop} {
+          font-size: 0.938rem;
+        }
+      }
+      &.active {
+        a {
+          color: $heading-color;
+          font-size: 1.5rem;
+          @media #{$breakpoint-lg-desktop} {
+            font-size: 1.25rem;
+          }
+          @media #{$breakpoint-md-desktop} {
+            font-size: 1.125rem;
+          }
+        }
+        .timeline-circle {
+          width: 28px;
+          height: 28px;
+          border: 2px solid $primary-color;
+          transform: translateX(-2px);
+          &::after {
+            color: $primary-color;
+            font-size: 16px;
+          }
+          @media #{$breakpoint-lg-desktop} {
+            width: 24px;
+            height: 24px;
+            &::after {
+              font-size: 13px;
+              top: 10px;
+            }
+          }
+        }
+      }
+    }
+    @media #{$breakpoint-pt} {
+      width: 280px;
+      margin: 0 auto;
+    }
+  }
+  .timeline-content {
+    padding-top: 30px;
+    @include animation(opacity 0.6s ease-in-out);
+    display: none;
+    @media #{$breakpoint-lg-desktop} {
+      padding-top: 20px;
+    }
+    figure {
+      margin-bottom: 2rem;
+      @media #{$breakpoint-lg-desktop} {
+        margin-bottom: 1.5rem;
+        img {
+          width: 64px;
+        }
+      }
+      @media #{$breakpoint-md-desktop} {
+        img {
+          width: 55px;
+        }
+      }
+    }
+    h2 {
+      margin-bottom: 20px;
+      @media #{$breakpoint-lg-desktop} {
+        margin-bottom: 15px;
+      }
+    }
+    &.active {
+      display: block;
+    }
+  }
+  &.timeline-content-wrap {
+    @media #{$breakpoint-md} {
+      margin-top: 20px;
+      @include flex-hr-center;
+      text-align: center;
+    }
+  }
+}

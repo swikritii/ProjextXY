@@ -1,0 +1,94 @@
+/* column-chart apexlegend style */
+#column-chart .apexcharts-legend .apexcharts-legend-series:first-child{
+    border: 1px solid #ED3646;
+}
+#column-chart .apexcharts-legend .apexcharts-legend-series:nth-child(2){
+    border: 1px solid #0946BF;
+}
+#column-chart .apexcharts-legend .apexcharts-legend-series:last-child{
+    border: 1px solid #19A96E;
+}
+#column-chart .apexcharts-legend .apexcharts-legend-series:nth-child(2) .apexcharts-legend-text{
+    color: #0946BF !important;
+}
+#column-chart .apexcharts-legend .apexcharts-legend-series:first-child .apexcharts-legend-text{
+    color: #ED3646 !important;
+}
+#column-chart .apexcharts-legend .apexcharts-legend-series:last-child .apexcharts-legend-text{
+    color: #19A96E !important;
+}
+
+/* #line-chart apexlegend style */
+#line-chart .apexcharts-legend .apexcharts-legend-series:first-child{
+    border: 1px solid #0946BF;
+}
+#line-chart .apexcharts-legend .apexcharts-legend-series:first-child .apexcharts-legend-text{
+    color: #0946BF !important;
+}
+#line-chart .apexcharts-legend .apexcharts-legend-series:last-child{
+    border: 1px solid #ED3646;
+}
+#line-chart .apexcharts-legend .apexcharts-legend-series:last-child .apexcharts-legend-text{
+    color: #ED3646 !important;
+}
+/* --------------------------------------------------------------------- */
+
+.apexcharts-text tspan{
+    font-family: 'Noto Sans', sans-serif !important;
+    color: #323132;
+    font-weight: bold;
+    font-size: 1.05rem;
+}
+
+#line-chart .apexcharts-yaxis-texts-g tspan{
+    font-weight: 400 !important;
+    font-size: .938rem !important;
+}
+
+.apexcharts-legend-text{
+    font-size: .875rem !important;
+    font-family: 'Noto Sans', sans-serif !important;
+    font-weight: 400 !important;
+}
+
+.apexcharts-legend .apexcharts-legend-series{
+    border: 1px solid;
+    border-radius: 20px;
+    padding: 3px 10px;
+}
+
+.apexcharts-legend-marker {
+    margin-right: 8px !important;
+}
+
+
+/* for column-chart */
+#column-chart .apexcharts-xaxis-label {
+    display:none !important;
+}
+
+#column-chart .apexcharts-legend-marker{
+    border-radius: 50px !important;
+}
+
+@media only screen and (max-width: 1440px){
+    .apexcharts-text tspan{
+        font-size: .875rem;
+    }
+    
+    #line-chart .apexcharts-yaxis-texts-g tspan{
+        font-size: .75rem !important;
+    }
+    
+    .apexcharts-legend-text{
+        font-size: .685rem !important;
+    }
+    .apexcharts-legend .apexcharts-legend-series{
+        padding: 2px 8px;
+    }
+    .apexcharts-legend-marker{
+        width: 10px !important;
+        height: 10px !important;
+    }
+    
+}

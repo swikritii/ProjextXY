@@ -1,0 +1,36 @@
+.zite-progress{
+    @include display-flex(flex);
+    @include align-items-center;
+    height: 10px;
+    @include radius(.25rem);
+    background-color: $border-color;
+    .progress-bar{
+        @include display-flex(flex);
+        @include justify-content-center;
+        @include flex-direction-column(column);
+        color: $white-color;
+        text-align: center;
+        white-space: nowrap;
+        transition: width .6s ease;
+        @include transition(width .6s ease);
+        height: 100%;
+        &.open{
+            background-color: $primary-color;
+        }
+        &.flagged{
+            background-color: $orange-color;
+        }
+        &.approved{
+            background-color: $primary-color;
+        }
+        &.rejected{
+            background-color: $red-color;
+        }
+        &:last-child{
+            border-radius: 0 .25rem .25rem 0;
+        }
+        &:first-child{
+            border-radius: .25rem 0  0 .25rem;
+        }
+    }
+}

@@ -1,0 +1,131 @@
+@import "./switcher";
+@import "./button";
+@import "./form-control";
+@import "./checkbox";
+@import "./search";
+@import "radios";
+@import "social-icons";
+@import "custom-dropdown";
+@import "custom-select";
+@import "range";
+@import "progress";
+
+/* .close-icon{
+    width: 40px;
+    height: 40px;
+    @include display-flex(flex);
+    @include justify-content-center;
+    @include align-items-center;
+    @include flex-direction-column(column);
+    border:1px solid $border-color;
+    @include radius(100%);
+    cursor: pointer;
+    @include transition(all .5s ease-in-out);
+    &:hover{
+        color:$red-color;
+        border-color:$red-color;
+    }
+} */
+
+.form-card{
+    background-color: $white-color;
+    .form-header{
+        @include display-flex(flex);
+        @include justify-content-between;
+        @include align-items-center;
+        padding:1rem 2rem;
+        h5{
+            font-size:1.125rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin:0;
+        }
+    }
+    .form-body{
+        padding:1rem 2rem;
+        padding-bottom: 2rem;
+        .upload{
+            position: relative;
+            padding:2rem;
+            border:1px solid $border-color;
+            @include radius(16px);
+            @include display-flex(flex);
+            @include justify-content-center;
+            @include align-items-center;
+            @include flex-direction-column(column);
+            input{
+                position:absolute;
+                width:100%;
+                height: 100%;
+                top:0;
+                right: 0;
+                top:0;
+                bottom: 0;
+                opacity: 0;
+                z-index: 99;
+            }
+            label{
+                // @include display-flex(flex);
+                // @include justify-content-start;
+                // @include align-items-center;
+                display: initial;
+                text-align: center;
+                text-transform: capitalize;
+                
+                .upload-icon{
+                    margin-bottom: 1rem;
+                }
+                .upload-text{
+                    b{
+                        font-size: .875rem;
+                        font-weight: 600;
+                    }
+                    p{
+                        margin:0;
+                        font-size: .775rem;
+                        color:$body-color;
+                        a{
+                            color:$primary-color;
+                            font-weight: 600;
+                        }
+                    }
+                }
+            }
+        }
+        .map{
+            min-height: 240px;
+        }
+        .map-input{
+            min-height: 240px;
+            @include display-flex(flex);
+            @include justify-content-center;
+            @include align-items-center;
+            @include flex-direction-column(column);
+            
+            .form-group{
+                width: 100%;
+                label{
+                    text-transform: capitalize;
+                }
+            }
+        }
+        .privacy{
+            text-align: center;
+            .custom-checkbox{
+                @include justify-content-center;
+                label{
+                    text-transform: none;
+                }
+            }
+            a{
+                text-decoration: underline;
+                margin-left: .5rem;
+            }
+        }
+    }
+
+}
+
+
+
+

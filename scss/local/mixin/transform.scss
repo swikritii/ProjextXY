@@ -1,0 +1,87 @@
+@mixin transform($value) {
+  -webkit-transform: $value;
+  -moz-transform: $value;
+  -ms-transform: $value;
+  -o-transform: $value;
+  transform: $value;
+}
+@mixin rotate($value) {
+  -webkit-transform: rotate($value);
+  -moz-transform: rotate($value);
+  -ms-transform: rotate($value);
+  -o-transform: rotate($value);
+  transform: rotate($value);
+}
+
+@mixin transformXY($value, $value) {
+  -webkit-transform: translate($value, $value);
+  -moz-transform: translate($value, $value);
+  -ms-transform: translate($value, $value); // IE9 only
+  -o-transform: translate($value, $value);
+  transform: translate($value, $value);
+}
+
+@mixin transformScale($value) {
+  -webkit-transform: scale($value);
+  -moz-transform: scale($value);
+  -ms-transform: scale($value); // IE9 only
+  -o-transform: scale($value);
+  transform: scale($value);
+}
+@mixin transformY($value) {
+  -webkit-transform: translateY($value);
+  -moz-transform: translateY($value);
+  -ms-transform: translateY($value); // IE9 only
+  -o-transform: translateY($value);
+  transform: translateY($value);
+}
+@mixin transform-translate-x($value) {
+  -webkit-transform: translate3d($value, 0, 0);
+  -moz-transform: translate3d($value, 0, 0);
+  -o-transform: translate3d($value, 0, 0);
+  -ms-transform: translate3d($value, 0, 0);
+  transform: translate3d($value, 0, 0);
+}
+// @include transform-translate-x(230px);
+
+@mixin transform-translate-y($value) {
+  -webkit-transform: translate3d(0, $value, 0);
+  -moz-transform: translate3d(0, $value, 0);
+  -o-transform: translate3d(0, $value, 0);
+  -ms-transform: translate3d(0, $value, 0);
+  transform: translate3d(0, $value, 0);
+}
+// @include transform-translate-y(230px);
+
+@mixin perspective($value) {
+  -webkit-perspective: $value;
+  -moz-perspective: $value;
+  -o-perspective: $value;
+  -ms-perspective: $value;
+  perspective: $value;
+}
+
+@mixin transform-style($type) {
+  -webkit-transform-style: $type;
+  -moz-transform-style: $type;
+  -o-transform-style: $type;
+  -ms-transform-style: $type;
+  transform-style: $type;
+}
+
+@mixin transform-translate-y-dropdown($value) {
+  -webkit-transform: translate3d(0, $value, 0) !important;
+  -moz-transform: translate3d(0, $value, 0) !important;
+  -o-transform: translate3d(0, $value, 0) !important;
+  -ms-transform: translate3d(0, $value, 0) !important;
+  transform: translate3d(0, $value, 0) !important;
+}
+// @include transform-translate-x(230px);
+
+@mixin transform-origin($coordinates) {
+  -webkit-transform-origin: $coordinates;
+  -moz-transform-origin: $coordinates;
+  -o-transform-origin: $coordinates;
+  -ms-transform-origin: $coordinates;
+  transform-origin: $coordinates;
+}

@@ -1,0 +1,9 @@
+.card{
+    position: relative;
+    cursor: pointer;
+    background-color: $white-color;
+    @include transition(all .4s ease);
+    min-width: 0;
+    height: 100%;
+    margin-bottom: 20px;
+}

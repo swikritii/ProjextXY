@@ -1,0 +1,10 @@
+
+
+@mixin box-shadow($content) {
+    -webkit-box-shadow: $content;
+    box-shadow: $content;
+}
+@mixin box-shadow-variable($shadow...) {
+    -webkit-box-shadow: $shadow; // iOS <4.3 & Android <4.1
+            box-shadow: $shadow;
+  }

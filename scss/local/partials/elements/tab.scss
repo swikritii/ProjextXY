@@ -1,0 +1,154 @@
+.custom-tab,
+.custom-option {
+  .custom-tab-content,
+  .option-tab-content {
+    padding: 0.6125rem;
+    .tab-item,
+    .option-item {
+      display: none;
+      @include transition(all 0.4s ease);
+      @include animation(opacity 1s ease);
+      &.current {
+        display: block;
+      }
+    }
+  }
+}
+ul.tab-list,
+ul.option-list {
+  @include display-flex(flex);
+  @include justify-content-start;
+  @include align-items-center;
+  // @include flex-wrap(wrap);
+  margin: 0;
+  li {
+    a {
+      position: relative;
+      display: block;
+      width: auto;
+      padding: 0.5rem 1rem;
+      font-weight: 600;
+      text-transform: capitalize;
+      @include transition(all 0.5s linear);
+      border: 1px solid transparent;
+      text-align: center;
+      @media #{$breakpoint-desktop} {
+        padding: 0.35rem 0.5rem;
+      }
+    }
+    &:not(:last-child) {
+      margin-right: 0.5rem;
+    }
+  }
+  &.is-bg {
+    li {
+      a {
+        background-color: transparent;
+        @include radius(10px);
+        @media #{$breakpoint-desktop} {
+          @include radius(7px);
+        }
+        &.current,
+        &:hover {
+          i {
+            color: $secondary-color;
+          }
+          color: $secondary-color;
+        }
+      }
+      &.current {
+        a {
+          color: $secondary-color;
+          background-color: $secondary-light;
+          i {
+            color: $secondary-color;
+          }
+        }
+      }
+    }
+  }
+  &.is-shadow {
+    background: $white-color;
+    @include box-shadow(0 0 70px $shadow-light);
+    @include flex-wrap(nowrap);
+    li {
+      a {
+        text-transform: capitalize;
+      }
+    }
+  }
+  &.is-border {
+    li {
+      a {
+        &::after {
+          content: "";
+          position: absolute;
+          width: 0;
+          left: 0;
+          bottom: 0;
+          height: 2px;
+          background-color: $primary-color;
+          @include transition(width 0.3s linear);
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+      &.current {
+        a {
+          color: $heading-color;
+          &::after {
+            width: 100%;
+            opacity: 1;
+            visibility: visible;
+          }
+        }
+      }
+      &:hover {
+        a {
+          color: $heading-color;
+        }
+      }
+    }
+  }
+  &.is-icon {
+    li {
+      a {
+        background: $white-color;
+        width: 40px;
+        height: 40px;
+        @include display-flex(flex);
+        @include align-items-center;
+        @include justify-content-center;
+        i {
+          font-size: 22px;
+          color: $border-color;
+        }
+        @media #{$breakpoint-desktop} {
+          width: 32px;
+          height: 32px;
+          i {
+            font-size: 20px;
+          }
+        }
+      }
+      &.current {
+        background: $primary-light;
+        i {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+  &.is-flex {
+    li {
+      flex: 0 0 45%;
+      width: 45%;
+      &:not(:last-child) {
+        margin-right: 0 !important;
+      }
+      a {
+        width: 100%;
+      }
+    }
+  }
+}

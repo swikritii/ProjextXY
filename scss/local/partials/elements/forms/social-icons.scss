@@ -1,0 +1,45 @@
+ul{
+    &.social-list{
+        @include display-flex(flex);
+        @include justify-content-start;
+        @include align-items-center;
+        li{
+            font-weight: 500;
+            a{
+                width:30px;
+                height: 30px;
+                @include radius(50%);
+                @include display-flex(flex);
+                @include justify-content-center;
+                @include align-items-center;
+                @include flex-direction-column(column);
+                @include box-shadow(0 10px 30px rgba(112,112,112,.33));
+                background-color: $white-color;
+                @include transition(all .5s ease-in-out);
+                svg{
+                    color:$body-color;
+                    margin:0;
+                }
+                &:hover{
+                    background-color: $secondary-color;
+                    svg{
+                        color:$white-color;
+                    }
+                }
+            }
+            &:not(:last-child){
+                margin-right: .6125rem;
+            }
+        }
+        &.is-center{
+            @include justify-content-center;
+        }
+        &.is-between{
+            @include justify-content-between;
+        }
+        &.is-end{
+            @include justify-content-end;
+        }
+        
+    }
+}

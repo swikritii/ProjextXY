@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Castoro&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap");
+
+$body-fonts: "Roboto", sans-serif;
+$heading-fonts: "Roboto", sans-serif;
+$logo-fonts: "Roboto", sans-serif;
+$banner-fonts: "Castoro", serif;
+$span-fonts: "Open Sans", sans-serif;
+
+$font-size-h1: 2.875rem; //50px
+$font-size-h2: 2.8rem;
+$font-size-h3: 2.75rem; //40px
+$font-size-h4: 1.063rem !default; //18px
+$font-size-h5: 0.938rem !default; //16px
+$font-size-h6: 0.875rem !default; //14px;
+$font-paragraph: 14px !default;
+$font-size-navbar: 16px !default;
+$font-size-small: 12px !default;

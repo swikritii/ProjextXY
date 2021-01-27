@@ -1,0 +1,463 @@
+
+
+/*--------------------------------------------------------------
+1. Normalize
+--------------------------------------------------------------*/
+*,
+::after,
+::before{
+	-webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+html {
+    font-family: sans-serif;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+article,
+aside,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
+    display: block;
+}
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: .875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: $body-color;
+    text-align: left;
+    background-color: $white-color;
+}
+
+[tabindex="-1"]:focus:not(:focus-visible) {
+    outline: 0 !important;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+	display: block;
+}
+
+p {
+    margin:0;
+}
+abbr[data-original-title],
+abbr[title] {
+    text-decoration: underline;
+    -webkit-text-decoration: underline dotted;
+    text-decoration: underline dotted;
+    cursor: help;
+    border-bottom: 0;
+    -webkit-text-decoration-skip-ink: none;
+    text-decoration-skip-ink: none;
+}
+address {
+    margin-bottom: 1rem;
+    font-style: normal;
+    line-height: inherit;
+    @media #{$breakpoint-lg-desktop}{
+        margin-bottom: 0.875rem;
+    }
+    @media #{$breakpoint-desktop}{
+        margin-bottom: 0.75rem;
+    }
+}
+dl,
+ol,
+ul {
+    margin-top: 0;
+	margin-bottom: 1rem;
+	padding:0;
+	list-style: none;
+}
+ol ol,
+ol ul,
+ul ol,
+ul ul {
+	margin-bottom: 0;
+	padding:0
+}
+ul
+dt {
+    font-weight: 700;
+}
+dd {
+    margin-bottom: 0.5rem;
+    margin-left: 0;
+}
+blockquote {
+    margin: 0 0 1rem;
+}
+b,
+strong {
+    font-weight: bolder;
+}
+small {
+    font-size: 80%;
+}
+sub,
+sup {
+    position: relative;
+    font-size: 75%;
+    line-height: 0;
+    vertical-align: baseline;
+}
+sub {
+    bottom: -0.25em;
+}
+sup {
+    top: -0.5em;
+}
+a {
+    color: $body-color;
+    text-decoration: none;
+    background-color: transparent;
+}
+a:hover {
+    color: $primary-dark;
+}
+a:not([href]) {
+    color: inherit;
+    text-decoration: none;
+}
+a:not([href]):hover {
+    color: inherit;
+    text-decoration: none;
+}
+code,
+kbd,
+pre,
+samp {
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 1em;
+}
+pre {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    overflow: auto;
+    -ms-overflow-style: scrollbar;
+}
+figure {
+    margin: 0 0 1rem;
+}
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+svg {
+    overflow: hidden;
+    vertical-align: middle;
+}
+table {
+    border-collapse: collapse;
+}
+caption {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    color: #6c757d;
+    text-align: left;
+    caption-side: bottom;
+}
+th {
+    text-align: inherit;
+}
+label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+button {
+    border-radius: 0;
+}
+button:focus {
+    outline: 1px dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+button,
+input {
+    overflow: visible;
+}
+button,
+select {
+    text-transform: none;
+}
+[role="button"] {
+    cursor: pointer;
+}
+select {
+    word-wrap: normal;
+}
+[type="button"],
+[type="reset"],
+[type="submit"],
+button {
+    -webkit-appearance: button;
+}
+[type="button"]:not(:disabled),
+[type="reset"]:not(:disabled),
+[type="submit"]:not(:disabled),
+button:not(:disabled) {
+    cursor: pointer;
+}
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner,
+button::-moz-focus-inner {
+    padding: 0;
+    border-style: none;
+}
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+}
+textarea {
+    overflow: auto;
+    resize: vertical;
+}
+fieldset {
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+legend {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    line-height: inherit;
+    color: inherit;
+    white-space: normal;
+}
+progress {
+    vertical-align: baseline;
+}
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+    height: auto;
+}
+[type="search"] {
+    outline-offset: -2px;
+    -webkit-appearance: none;
+}
+[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+::-webkit-file-upload-button {
+    font: inherit;
+    -webkit-appearance: button;
+}
+output {
+    display: inline-block;
+}
+summary {
+    display: list-item;
+    cursor: pointer;
+}
+template {
+    display: none;
+}
+[hidden] {
+    display: none !important;
+}
+
+/*--------------------------------------------------------------
+2. Typography
+--------------------------------------------------------------*/
+body, button, input, select, textarea {
+ /*    font-size: .875rem;
+    line-height: 1.8em;
+    font-weight: 400; */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    -webkit-font-smoothing: antialiased;
+}
+h1 {
+	font-size: $font-size-h1;
+}
+
+h2 {
+	font-size: $font-size-h2;
+}
+
+h3 {
+	font-size: $font-size-h3;
+}
+
+h4 {
+	font-size: $font-size-h4;
+}
+
+h5 {
+	font-size: $font-size-h5;
+}
+
+h6 {
+	font-size: $font-size-h6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	position: relative;
+	margin: 0 0 1rem;
+	background: none;
+	line-height: 1.4;
+	/* font-family: 'Roboto Condensed', sans-serif; */
+	color: $heading-color;
+	font-weight: 600;
+}
+
+
+/*--------------------------------------------------------------
+7. Media
+--------------------------------------------------------------*/
+.page-content .wp-smiley,
+.entry-content .wp-smiley,
+.comment-content .wp-smiley {
+	border: none;
+	margin-bottom: 0;
+	margin-top: 0;
+	padding: 0;
+}
+
+/* Make sure embeds and iframes fit their containers. */
+embed,
+iframe,
+object {
+	max-width: 100%;
+}
+/**
+* Print
+*/
+
+@media print {
+	form,
+	button,
+	input,
+	select,
+	textarea,
+	.navigation,
+	.main-navigation,
+	.social-navigation,
+	.sidebar,
+	.content-bottom-sections,
+	.header-image,
+	.page-links,
+	.edit-link,
+	.comment-respond,
+	.comment-edit-link,
+	.comment-reply-link,
+	.comment-metadata .edit-link,
+	.pingback .edit-link {
+		display: none;
+	}
+
+
+}
+/**
+* Media Queries
+*/
+
+/**
+* Does the same thing as <meta name="viewport" content="width=device-width">,
+* but in the future W3C standard way. -ms- prefix is required for IE10+ to
+* render responsive styling in Windows 8 "snapped" views; IE10+ does not honor
+* the meta tag. See https://core.trac.wordpress.org/ticket/25888.
+*/
+
+@-ms-viewport {
+	width: device-width;
+}
+
+@viewport {
+	width: device-width;
+}
+
+.small,
+small {
+    font-size: 80%;
+    font-weight: 400;
+}
+.mark,
+mark {
+    padding: 0.2em;
+    background-color: #fcf8e3;
+}
+.list-unstyled {
+    padding-left: 0;
+    list-style: none;
+}
+.list-inline {
+    padding-left: 0;
+    list-style: none;
+}
+.list-inline-item {
+    display: inline-block;
+}
+.list-inline-item:not(:last-child) {
+    margin-right: 0.5rem;
+}
+.initialism {
+    font-size: 90%;
+    text-transform: uppercase;
+}
+.blockquote {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+.blockquote-footer {
+    display: block;
+    font-size: 80%;
+    color: #6c757d;
+}
+.blockquote-footer::before {
+    content: "\2014\00A0";
+}
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+.img-thumbnail {
+    padding: 0.25rem;
+    background-color: $white-color;
+    border: 1px solid $body-color;
+    border-radius: 0.25rem;
+    max-width: 100%;
+    height: auto;
+}
+
+
+
+

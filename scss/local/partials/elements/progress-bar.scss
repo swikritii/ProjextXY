@@ -1,0 +1,44 @@
+.progress_bar {
+  max-width: 550px;
+  margin: auto;
+  height: 15px;
+  background: $grey-color;
+  border: 1px solid rgba($black-color, 0.5);
+  @include display-flex(flex);
+  @include justify-content-start;
+  @include align-items-center;
+  position: relative;
+  margin-bottom: 20px;
+  @include radius(20px);
+  .progress_square {
+    width: 0%;
+    height: 100%;
+    background-color: $primary-color;
+    @include radius(20px);
+    @include transition(all 0.4s ease);
+    opacity: 0.7;
+  }
+  .progress-count {
+    position: relative;
+    bottom: -15px;
+    left: 0;
+    &::before {
+      content: "0%";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+  }
+  &.active {
+    .progress_square {
+      width: 100%;
+    }
+    .progress-count {
+      &::before {
+        content: "100%";
+        left: 100%;
+      }
+    }
+  }
+}

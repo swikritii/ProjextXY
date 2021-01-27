@@ -1,0 +1,52 @@
+.common-title {
+  display: block;
+  margin-bottom: 30px;
+  max-width: 970px;
+
+  @media #{$breakpoint-md} {
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    color: $heading-color;
+    font-weight: 500;
+    &.is-underline {
+      position: relative;
+      &::after {
+        position: absolute;
+        content: "";
+        bottom: -20px;
+        left: 50%;
+        @include transformXY(-50%, -50%);
+        width: 25%;
+        height: 4.5px;
+        background: $black-color;
+      }
+    }
+  }
+  p {
+    margin-top: 20px;
+    color: $text-color;
+    font-size: 1.05rem;
+    font-family: $span-fonts;
+  }
+
+  &.is-light {
+    h3 {
+      color: $white-color;
+    }
+  }
+
+  &.is-center {
+    @include flex-hr-center;
+    text-align: center;
+    max-width: 970px;
+    margin: 0 auto;
+    margin-bottom: 2.75rem;
+
+    @media #{$breakpoint-md} {
+      max-width: 690px;
+      margin-bottom: 1.5rem;
+    }
+  }
+}

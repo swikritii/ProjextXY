@@ -1,0 +1,29 @@
+@mixin cover($value) {
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-position: $value !important;
+}
+
+@mixin containXY($value, $value) {
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: $value, $value !important;
+}
+
+@mixin contain($value) {
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: $value !important;
+}
+@mixin overlay($value) {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  background-color: $value;
+}

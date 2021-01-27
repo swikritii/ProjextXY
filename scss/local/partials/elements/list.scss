@@ -1,0 +1,198 @@
+ul {
+  margin: 0;
+  &.list {
+    li {
+      color: $heading-color;
+      padding: 0.5rem 0.6125rem;
+      @include transition(all 0.4s ease-in-out);
+      @include display-flex(flex);
+      @include justify-content-start;
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+      figure {
+        @include flex(0 0 55px);
+        max-width: 55px;
+        margin: 0;
+        img {
+          width: 40px;
+          height: 40px;
+          @include radius(100%);
+        }
+      }
+      .circle-icon {
+        i {
+          font-size: 1rem;
+        }
+      }
+      .list-content {
+        font-size: 0.9125rem;
+        @media #{$breakpoint-desktop} {
+          font-size: 0.8125rem;
+        }
+        p {
+          a {
+            font-weight: 600;
+            color: $heading-color;
+          }
+        }
+        time {
+          color: $body-color;
+          display: block;
+          margin-top: 0.5rem;
+        }
+        a {
+          &.phone-number {
+            font-weight: 600;
+            color: $primary-color;
+            font-size: 0.875rem;
+          }
+        }
+      }
+      &.is-icons {
+        li {
+          i {
+            font-size: 20px;
+            margin-right: 15px;
+          }
+        }
+      }
+      i {
+        color: $white-color;
+      }
+      a {
+        &:hover {
+          color: $primary-light;
+        }
+      }
+    }
+    &.no-border {
+      border: 0;
+    }
+    &.is-border {
+      border: 1px solid $border-color;
+    }
+    &.is-center {
+      @include align-items-center;
+    }
+    &.is-start {
+      @include align-items-start;
+    }
+  }
+  &.address {
+    margin-top: 1rem;
+    li {
+      @include transition(all 0.4s ease-in-out);
+      @include display-flex(flex);
+      @include justify-content-start;
+      @include align-items-center;
+      color: $heading-color;
+      padding: 0.25rem 0;
+      font-size: 0.9125rem;
+      @media #{$breakpoint-desktop} {
+        font-size: 0.8125rem;
+      }
+      i {
+        color: $primary-color;
+        margin-right: 0.6125rem;
+      }
+    }
+    &.inline-address {
+      @include display-flex(flex);
+      @include justify-content-start;
+      @include align-items-center;
+      @include flex-wrap(wrap);
+      margin: 1rem 0;
+      li {
+        &:not(:last-child) {
+          margin-right: 2rem;
+        }
+      }
+    }
+  }
+  &.is-checkbox {
+    .custom-checkbox {
+      width: 100%;
+      margin: 0;
+    }
+    .check-content {
+      @include display-flex(flex);
+      @include justify-content-start;
+      @include align-items-center;
+      flex-grow: 1;
+      b {
+        text-transform: capitalize;
+      }
+    }
+    li {
+      &:focus-within,
+      &:hover {
+        background-color: $primary-light;
+      }
+    }
+  }
+}
+.inline-row {
+  @include display-flex(flex);
+  @include justify-content-between;
+  @include align-items-center;
+  &.is-start {
+    @include justify-content-start;
+  }
+  &.is-end {
+    @include justify-content-end;
+  }
+}
+.inline-item {
+  @include display-flex(flex);
+  @include justify-content-start;
+  @include align-items-center;
+  .cricle-icon,
+  .square-icon {
+    margin-right: 1rem;
+  }
+  .inline-text {
+    h3 {
+      font-size: 1.8rem;
+      margin: 0;
+      @media #{$breakpoint-desktop} {
+        font-size: 1.5rem;
+      }
+    }
+    span {
+      text-transform: capitalize;
+    }
+  }
+}
+
+.social-list {
+  @include display-flex(flex);
+  @include justify-content-start;
+  @include align-items-center;
+  @media #{$breakpoint-md} {
+    margin-bottom: 10px;
+  }
+
+  a {
+    display: inline-block;
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
+    i {
+      @include transition(all 0.4s ease);
+    }
+    &:hover {
+      i {
+        color: $primary-light;
+      }
+      img {
+        @include transformScale(1.2);
+      }
+    }
+    img {
+      @include transition(all 0.4s ease);
+      width: 15px;
+      height: 15px;
+    }
+  }
+}

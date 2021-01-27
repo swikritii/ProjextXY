@@ -1,0 +1,226 @@
+.slider {
+    position: relative;
+    margin-bottom: 0 !important;
+    width: 100%;
+
+    @media #{$breakpoint-lg} {
+        @include display-flex(flex);
+        @include align-items-center;
+        @include justify-content-center;
+    }
+
+    .slick-dots {
+        padding: 8px;
+        @include display-flex(flex);
+        @include justify-content-center;
+        list-style: circle;
+        bottom: -38px;
+
+        li {
+            @include radius(50%);
+            margin-right: 4px;
+            height: 8px;
+            width: 8px;
+            display: inline-block;
+            background: $border-color;
+            cursor: pointer;
+            -webkit-transition: all 300ms ease;
+            transition: all 300ms ease;
+
+            @media #{$breakpoint-desktop} {
+                width: 6px;
+                height: 6px;
+            }
+
+            button {
+                &::before {
+                    content: '';
+                }
+            }
+
+            &.slick-active {
+                background: $heading-color;
+            }
+
+            &:hover {
+                background: rgba($heading-color, .4);
+            }
+        }
+    }
+
+    .slick-prev,
+    .slick-next {
+        top: 100%;
+        position: absolute !important;
+        z-index: 11;
+        width: 45px;
+        height: 45px;
+        @include radius(50%);
+        border: 1px solid $white-color;
+        background: transparent;
+        @include transition(all .3s ease);
+
+        @media #{$breakpoint-desktop} {
+            width: 35px;
+            height: 35px
+        }
+
+        &::before {
+            font-family: "Material Icons";
+            font-size: 25px;
+            color: $white-color;
+
+            @media #{$breakpoint-desktop} {
+                font-size: 18px;
+            }
+        }
+
+        &:hover {
+            background: $white-color;
+
+            &::before {
+                color: $primary-color;
+            }
+        }
+
+    }
+
+    .slick-prev {
+        &::before {
+            content: "keyboard_arrow_left";
+        }
+    }
+
+    .slick-next {
+        &::before {
+            content: "keyboard_arrow_right";
+        }
+    }
+
+    &.is-left-nav {
+        .slick-prev {
+            left: 0;
+            margin-right: 60px;
+
+            @media #{$breakpoint-desktop} {
+                margin-right: 50px;
+            }
+
+            @media #{$breakpoint-lg} {
+                left: auto;
+            }
+        }
+
+        .slick-next {
+            right: auto;
+            margin-left: 60px;
+
+            @media #{$breakpoint-desktop} {
+                margin-left: 50px;
+            }
+        }
+    }
+
+    &.is-right-nav {
+        .slick-prev {
+            left: auto;
+            right: 0;
+            margin-right: 50px;
+
+            @media #{$breakpoint-desktop} {
+                margin-right: 30px;
+            }
+        }
+
+        .slick-next {
+            right: 0;
+        }
+    }
+
+    &.is-light-nav {
+
+        .slick-prev,
+        .slick-next {
+            border: 1px solid $white-color;
+            position: relative;
+            z-index: 11;
+
+            &:after {
+                position: absolute;
+                content: '';
+                background: transparent;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 20%;
+                z-index: 1;
+                @include radius(50%);
+                @include transition(all .2s ease);
+            }
+
+            &::before {
+                color: $white-color;
+                z-index: 11;
+                position: relative;
+            }
+
+            &:hover {
+                &:after {
+                    height: 100%;
+                    background: $white-color;
+                }
+
+                &::before {
+                    color: $primary-color;
+                }
+            }
+
+            &:focus {
+                &:after {
+                    height: 100%;
+                    background: rgba($white-color, .4);
+                }
+            }
+        }
+    }
+
+    &.is-dark-nav {
+
+        .slick-prev,
+        .slick-next {
+            border: 1px solid $border-color;
+
+            &::before {
+                color: $text-color;
+            }
+
+            &:hover {
+                border: 1px solid $secondary-color;
+
+                &::before {
+                    color: $secondary-color;
+                }
+            }
+        }
+    }
+
+    &.is-sm {
+
+        .slick-prev,
+        .slick-next {
+            width: 30px;
+            height: 30px;
+
+            @media #{$breakpoint-desktop} {
+                width: 25px;
+                height: 25px;
+            }
+        }
+    }
+
+    .slick-track {
+        @include display-flex(flex);
+        @include align-items-center;
+    }
+
+}

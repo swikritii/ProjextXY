@@ -1,0 +1,74 @@
+.fixed-action-btn {
+    .scroll-top {
+        z-index: 1;
+        position: fixed;
+        right: 40px;
+        bottom: -20%;
+        margin-bottom: 0;
+        z-index: 997;
+        padding: 12px;
+        line-height: 0;
+        @include radius(50%);
+        text-align: center;
+        background: $secondary-color;
+        @include transition(all .4s ease);
+        @include box-shadow(0 2px 5px rgba($heading-color, .7));
+        color: $primary-color;
+
+        @media #{$breakpoint-sm} {
+            position: absolute;
+        }
+
+        i {
+            color: $white-color;
+        }
+
+        @media #{$breakpoint-desktop} {
+            padding: 10px;
+
+            i {
+                font-size: 16px;
+            }
+        }
+
+        &:hover {
+            cursor: pointer;
+            @include box-shadow(0 4px 7px rgba($heading-color, .7));
+
+            i {
+                color: $white-color;
+            }
+        }
+
+        &.open {
+            bottom: 5%;
+
+            @media #{$breakpoint-sm} {
+                bottom: .25%;
+            }
+        }
+    }
+
+    &.is-shadow {
+        .scroll-top {
+            @include box-shadow(0 0px 2px $shadow-dark);
+
+            &::after {
+                position: absolute;
+                z-index: -1;
+                content: '';
+                top: 100%;
+                left: 5%;
+                height: 10px;
+                width: 90%;
+                opacity: 1;
+                background: -webkit-radial-gradient(center, rgba(51, 51, 51, 0.25) 0%, rgba(51, 51, 51, 0) 80%);
+            }
+
+            &:hover {
+                background: rgba(255, 171, 0, 0.6);
+            }
+
+        }
+    }
+}
